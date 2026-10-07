@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دعوت‌نامه جشن پیوند مرضیه و مجید">
+  <title>مرضیه و مجید | دعوت‌نامه بله برون</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&amp;family=Noto+Nastaliq+Urdu:wght@500;600&amp;family=Vazirmatn:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #667565;
+      --gold: #a88d68;
+      /* --paper: #f4f2ee; */
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      overflow: hidden;
+      background: radial-gradient(circle, #69675f 0, #353531 55%, #1f1f1d 100%);
+      font-family: "Vazirmatn", sans-serif;
+    }
+
+    .invitation {
+      position: relative;
+      height: min(96svh, 170vw);
+      aspect-ratio: 608 / 1080;
+      overflow: hidden;
+      color: var(--green);
+      background: var(--paper);
+      box-shadow:
+        0 22px 55px rgba(0,0,0,.4);
+      isolation: isolate;
+      animation: appear .8s ease-out both;
+    }
+
+    .card-background {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 50%;
+      width: auto;
+      max-width: none;
+      height: 100%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 63% 12% 8%;
+      text-align: center;
+      text-shadow: 0 1px 1px rgba(255,255,255,.8);
+    }
+
+    h1 {
+      margin: 0;
+      display: flex;
+      width: auto;
+      justify-content: center;
+      gap: clamp(1.25rem, 4vh, 2.25rem);
+      font-family: "Noto Nastaliq Urdu", serif;
+      font-size: clamp(2rem, 5.4vh, 3.4rem);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .prelude {
+      margin: 4.4% 0 0;
+      font-family: "Noto Nastaliq Urdu", serif;
+      font-size: clamp(1rem, 2.7vh, 1.65rem);
+      font-weight: 600;
+      line-height: 1.8;
+    }
+
+    .story {
+      margin: 5.5% 0 0;
+      font-family: "Noto Nastaliq Urdu", serif;
+      font-size: clamp(.95rem, 2.55vh, 1.55rem);
+      font-weight: 600;
+      line-height: 2;
+    }
+
+    .story span { display: block; }
+
+    .welcome {
+      margin: 5.2% 0 0;
+      font-family: "Lalezar", "Vazirmatn", sans-serif;
+      font-size: clamp(1rem, 2.8vh, 1.65rem);
+      line-height: 1.4;
+    }
+
+    time {
+      margin-top: 7%;
+      font-size: clamp(1rem, 2.8vh, 1.65rem);
+      font-weight: 600;
+      direction: ltr;
+    }
+
+    .countdown {
+      width: 82%;
+      margin-top: 3.5%;
+      padding: 2.2% 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      direction: ltr;
+      border-top: 1px solid rgba(102, 117, 101, .35);
+      border-bottom: 1px solid rgba(102, 117, 101, .35);
+    }
+
+    .countdown div {
+      text-align: center;
+      border-left: 1px solid rgba(102, 117, 101, .25);
+    }
+
+    .countdown div:first-child { border-left: 0; }
+
+    .countdown strong {
+      display: block;
+      font-size: clamp(.9rem, 2.3vh, 1.35rem);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .countdown span {
+      display: block;
+      margin-top: 2px;
+      font-size: clamp(.52rem, 1.25vh, .72rem);
+      direction: rtl;
+    }
+
+    .mute-toggle {
+      position: absolute;
+      z-index: 4;
+      right: 4.5%;
+      bottom: 3.5%;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--green);
+      background: transparent;
+      border: 0;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      filter: grayscale(1) brightness(0) invert(1);
+    }
+
+    .mute-toggle:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .reveal-line {
+      opacity: 0;
+      filter: blur(4px);
+      transform: translateY(14px);
+      animation: reveal-line .4s cubic-bezier(.22, .75, .28, 1) forwards;
+      animation-delay: calc(.2s + var(--line) * .3s);
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px) scale(.985); }
+    }
+
+    @keyframes reveal-line {
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 9px; }
+      .content { padding-inline: 10%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .invitation { animation: none; }
+      .reveal-line {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="invitation" aria-label="دعوت‌نامه عروسی مرضیه و مجید">
+    <img class="card-background" src="bg.png" alt="">
+    <section class="content">
+      <h1 class="reveal-line" style="--line: 0"><span>مرضیه</span><span>مجید</span></h1>
+      <p class="prelude reveal-line" style="--line: 1">به نام آن که عشق را آفرید</p>
+      <p class="story">
+        <span class="reveal-line" style="--line: 2">قصه ما از یک دوستت دارم</span>
+        <span class="reveal-line" style="--line: 3">شروع شد و حالا به قشنگ‌ترین</span>
+        <span class="reveal-line" style="--line: 4">بله</span>
+        <span class="reveal-line" style="--line: 5">زندگی‌مان رسیده است</span>
+      </p>
+      <p class="welcome reveal-line" style="--line: 6">با عشق منتظر حضورتون هستیم</p>
+      <time class="reveal-line" style="--line: 7" datetime="2026-09-10">۱۴۰۵/۶/۱۹</time>
+      <div class="countdown reveal-line" style="--line: 8" aria-label="زمان باقی‌مانده تا مراسم">
+        <div><strong id="days">۰۰</strong><span>روز</span></div>
+        <div><strong id="hours">۰۰</strong><span>ساعت</span></div>
+        <div><strong id="minutes">۰۰</strong><span>دقیقه</span></div>
+        <div><strong id="seconds">۰۰</strong><span>ثانیه</span></div>
+      </div>
+    </section>
+    <button class="mute-toggle" type="button" aria-label="پخش صدا" aria-pressed="true">🔇</button>
+  </main>
+
+  <audio id="wedding-music" src="Perfect.mp3" preload="auto" muted loop playsinline></audio>
+
+  <script>
+    const music = document.getElementById("wedding-music");
+    const muteToggle = document.querySelector(".mute-toggle");
+    const weddingDate = new Date("2026-09-10T18:30:00+03:30");
+    const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+    const countdownFields = ["days", "hours", "minutes", "seconds"];
+
+    function toPersianDigits(value) {
+      return String(value).padStart(2, "0").replace(/\d/g, digit => persianDigits[digit]);
+    }
+
+    function updateCountdown() {
+      const remaining = Math.max(0, weddingDate.getTime() - Date.now());
+      const values = [
+        Math.floor(remaining / 86400000),
+        Math.floor((remaining / 3600000) % 24),
+        Math.floor((remaining / 60000) % 60),
+        Math.floor((remaining / 1000) % 60)
+      ];
+
+      countdownFields.forEach((field, index) => {
+        document.getElementById(field).textContent = toPersianDigits(values[index]);
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    muteToggle.addEventListener("click", () => {
+      music.muted = !music.muted;
+      muteToggle.textContent = music.muted ? "🔇" : "🔊";
+      muteToggle.setAttribute("aria-pressed", String(music.muted));
+      muteToggle.setAttribute("aria-label", music.muted ? "پخش صدا" : "قطع صدا");
+      if (music.paused) music.play().catch(() => {});
+    });
+  </script>
+</body>
+</html>
